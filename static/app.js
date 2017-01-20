@@ -1,23 +1,15 @@
-var app = angular.module('AnimeApp', ["ngRoute"]);
-app.config(function($routeProvider) {
+var app = angular.module('AnimeApp', ["ngRoute"])
+    .config( ['$routeProvider', function($routeProvider) {
     $routeProvider
-    .when("/", {
-        templateUrl : "/static/html/login.html",
-        controller : "HomepageController"
+    .when('/login', {
+    templateUrl: '/templates/login.html',
+        controller: 'Login'
     })
-    .when("/login", {
-        templateUrl : "/static/html/login.html",
-        controller : "LoginController"
-    })
-    .when("/signup", {
-        templateUrl : "signup.htm",
-        controller : "SignupController"
-    })
-    .when("/profile", {
-        templateUrl : "profile.htm",
-        controller : "ProfileController"
+    .when('/signup', {
+    templateUrl: '/templates/signup.html',
+        controller: 'Signup'
     });
-});
+}]);
 
 app.controller('HomepageController', ['$scope', function ($scope) {
     $scope.message = "Hello, World!";
@@ -33,7 +25,7 @@ app.controller('SignupController', ['$scope', function ($scope, $http) {
                 $scope.response = answer;
             });*/
             alert(angular.toJson(user))
-        }
+        }//не работает POST запрос
     };
 }]);
 
