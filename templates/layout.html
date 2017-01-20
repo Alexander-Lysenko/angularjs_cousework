@@ -10,10 +10,14 @@
     {% endif %}
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <script type="text/javascript" src="../static/js/angular.min.js"></script>
-    <script type="text/javascript" src="../static/js/angular-route.min.js"></script>
+    <script type="text/javascript" src="../static/js/angular-route.js"></script>
     <script type="text/javascript" src="../static/app.js"></script>
 </head>
 <body ng-app="AnimeApp" style="margin: 1%">
+<!-- основной контент -->
+<div class="container">
+    <div ui-view></div>
+</div>
 {% block body %}
 {% endblock %}
 </body>
