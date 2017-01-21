@@ -1,0 +1,70 @@
+<div class="text-center" ng-controller="AnimeListController">
+    <h3 ng-controller="LoginController">Здравствуйте, {{ '{{username}}' }}</h3>
+    <div class="panel panel-primary" style="float: left; margin-right: 10px;">
+        <div class="panel-heading">
+            <h3 class="panel-title">Добавить аниме в коллекцию</h3>
+        </div>
+        <div class="panel-body">
+            <form name="editForm" ng-submit="submitForm(edit, editForm)" novalidate>
+                <div class="form-group">
+                    <label for="title">Название:</label>
+                    <input type="text" id="title" class="form-control" ng-model="edit.title" required>
+                </div>
+                <div class="form-group">
+                    <label for="title_original">Оригинальное название:</label>
+                    <input type="text" id="title_original" class="form-control" ng-model="edit.title_original" required>
+                </div>
+                <div class="form-group">
+                    <label for="series_count">Количество серий:</label>
+                    <input type="number" min="1" id="series_count" class="form-control" ng-model="edit.series_count"
+                           required>
+                </div>
+                <div class="form-group">
+                    <label for="release_date">Дата выхода:</label>
+                    <input type="date" id="release_date" class="form-control" ng-model="edit.release_date" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Описание:</label>
+                    <textarea id="description" class="form-control" ng-model="edit.description" rows="5"
+                              required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить аниме</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-heading" style="overflow: hidden" ng-init="requestData()">
+        <div class="panel-heading">
+            <h3 class="panel-title" align="center">Мой список аниме</h3>
+        </div>
+        <table class="table table-striped table-bordered">
+            <thead>
+            <tr>
+                <th style="width: 15%">Название</th>
+                <th>Оригинальное название</th>
+                <th>Количество серий</th>
+                <th>Дата выхода</th>
+                <th style="width: 30%">Описание</th>
+                <th>X</th>
+            </tr>
+            </thead>
+            <tr ng-repeat="anime in anime_list | orderBy: 'anime[0]' ">
+                <td><p>{{ '{{anime[1]}}' }}</p></td>
+                <td><p>{{ '{{anime[2]}}' }}</p></td>
+                <td><p>{{ '{{anime[3]}}' }}</p></td>
+                <td><p>{{ '{{anime[4]}}' }}</p></td>
+                <td><p>{{ '{{anime[5]}}' }}</p></td>
+                <td><button class="btn btn-default" {{'ng-click=removeAnime({{anime[0]}})'}}>X</button></td>
+                <!--td><button class="btn btn-default" onclick="
+                location.href='/api/anime/rm/{{ ' {{anime[0]}} ' }}'">X</button></td-->
+            </tr>
+            <tr ng-if="edit.title">
+                <td ng-bind="edit.title"></td>
+                <td ng-bind="edit.title_original"></td>
+                <td ng-bind="edit.series_count"></td>
+                <td ng-bind="edit.release_date.toDateString('dd.MM.yyyy')"></td>
+                <td ng-bind="edit.description"></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>

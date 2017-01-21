@@ -1,17 +1,35 @@
-{% extends "layout.html" %}
-{% block body %}
-<div ng-controller="HomepageController">
-    <span>Message is {{ '{{message}}' }}</span>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    {% if title %}
+    <title>{{title}} - My Anime List</title>
+    {% else %}
+    <title>My Anime List</title>
+    {% endif %}
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/css/cover.css">
+    <link rel="stylesheet" href="../static/css/sticky-footer.css">
+    <script src="../static/js/angular.min.js"></script>
+    <script src="../static/js/angular-route.js"></script>
+    <script src="../static/js/angular-cookies.js"></script>
+    <script src="../static/app.js"></script>
+    <script src="../static/services/services.js"></script>
+</head>
+<body ng-app="AnimeApp">
+<!-- основной контент -->
+<div class="container">
+    <div class="panel-heading" style="margin: auto">
+        <h1>Моя коллекция аниме</h1>
+        <div ng-view=""></div>
+    </div>
 </div>
-<!-- partial-home.html -->
-<div class="jumbotron text-center">
-    <h1>Главная страница</h1>
-    <p>Эта страница показывает <span class="text-danger">вложенные</span> виды.</p>
-<p><a href="#">Main</a></p>
+<div id="footer">
+    <div class="container">
+        <p class="text-muted">Place sticky footer content here.</p>
+    </div>
+</div>
 
-<a href="#login">login</a>
-<a href="#signup">signup</a>
-<a href="#profile">profile</a>
-</div>
-<div ui-view></div>
-{% endblock %}
+</body>
+</html>

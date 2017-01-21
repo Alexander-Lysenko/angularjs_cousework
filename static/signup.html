@@ -1,0 +1,55 @@
+<div ng-controller="SignupController">
+    <h3 class="panel-title">Зарегистрируйтесь, чтобы посмотреть коллекцию</h3>
+<div ng-show="message" class="alert alert-success">{{message}}</div>
+<div ng-show="error" class="alert alert-danger">{{error}}</div>
+    <!-- FORM ============ -->
+    <form name="userForm" ng-submit="submitForm(user, userForm)" novalidate>
+        <!-- USER_NAME -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userForm.user_name.$invalid && !userForm.user_name.$pristine }">
+            <label>Ваше имя:</label>
+            <input type="text" name="user_name" class="form-control" ng-model="user.user_name"
+                   ng-minlength="3" required placeholder="Введите Ваше имя">
+            <p ng-show="userForm.user_name.$invalid && !userForm.user_name.$pristine" class="help-block">
+                Необходимо ввести свое имя</p>
+        </div>
+        <!-- NICKNAME -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userForm.nickname.$invalid && !userForm.nickname.$pristine }">
+            <label>Никнейм:</label>
+            <input type="text" name="nickname" class="form-control" ng-model="user.nickname"
+                   ng-minlength="5" ng-maxlength="32" required placeholder="Введите никнейм">
+            <p ng-show="userForm.nickname.$error.minlength" class="help-block">Слишком короткий никнейм</p>
+            <p ng-show="userForm.nickname.$error.maxlength" class="help-block">Превышена длина никнейма</p>
+        </div>
+        <!-- EMAIL -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>E-mail:</label>
+            <input type="email" name="email" class="form-control" ng-model="user.email" required
+                   placeholder="Введите адрес почты">
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">
+                Некорректный адрес почты</p>
+        </div>
+        <!-- PASSWORD -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+            <label>Пароль:</label>
+            <input type="password" name="password" class="form-control" ng-model="user.password"
+                   ng-minlength="8" ng-maxlength="32" required>
+            <p ng-show="userForm.password.$error.minlength || userForm.password.$error.maxlength"
+               class="help-block">Длина пароля должна быть 8-32 символа</p>
+        </div>
+        <!-- CONFIRM_PASSWORD -->
+        <div class="form-group"
+             ng-class="{ 'has-error' : userForm.confirm_password.$invalid && !userForm.confirm_password.$pristine }">
+            <label>Повторите пароль:</label>
+            <input type="password" name="confirm_password" class="form-control"
+                   ng-model="user.confirm_password" required ng-pattern="user.password">
+            <p ng-show="user.password != user.confirm_password" class="help-block">Пароли не совпадают</p>
+        </div>
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Зарегистрироваться
+        </button>
+        <a class="btn btn-default" href="/#login" role="button">Войти в аккаунт</a>
+    </form>
+</div>
