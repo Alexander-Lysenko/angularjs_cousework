@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42c94399-e144-4179-abbe-125904c02b78" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/home.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css/bootstrap-theme.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/css/bootstrap-theme.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/edit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/layout.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/login.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/profile.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/templates/signup.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.db" afterPath="$PROJECT_DIR$/database.db" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/home.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/html/edit.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/html/login.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/html/profile.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/static/html/signup.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/app.js" afterPath="$PROJECT_DIR$/static/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/edit.html" afterPath="$PROJECT_DIR$/static/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/login.html" afterPath="$PROJECT_DIR$/static/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/signup.html" afterPath="$PROJECT_DIR$/static/signup.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,7 +22,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/coursework$app.coverage" NAME="app Coverage Results" MODIFIED="1484975026663" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/coursework$app.coverage" NAME="app Coverage Results" MODIFIED="1484976446092" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -40,21 +38,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+            <state relative-caret-position="134">
+              <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
               <folding>
                 <element signature="e#0#91#0" expanded="true" />
-                <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-                <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-                <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-                <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-                <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-                <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-                <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-                <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+                <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+                <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+                <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+                <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+                <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+                <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+                <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+                <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -63,12 +61,24 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+            <state relative-caret-position="54">
+              <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
               <folding>
                 <element signature="e#37#70#0" expanded="false" />
                 <element signature="e#135#176#0" expanded="false" />
                 <element signature="e#217#794#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="edit.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/edit.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="215">
+              <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+              <folding>
+                <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -95,19 +105,33 @@
       <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
+            <state relative-caret-position="0">
+              <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="162">
+              <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="21" selection-end-column="63" />
-              <folding />
+            <state relative-caret-position="54">
+              <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -122,6 +146,13 @@
         <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>{{user</find>
+      <find>{{use</find>
+      <find>'{{username</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -142,13 +173,13 @@
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/static/home.html" />
         <option value="$PROJECT_DIR$/static/css/sticky-footer.css" />
-        <option value="$PROJECT_DIR$/static/edit.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/login.html" />
-        <option value="$PROJECT_DIR$/static/signup.html" />
         <option value="$PROJECT_DIR$/static/services/services.js" />
         <option value="$PROJECT_DIR$/static/app.js" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/static/edit.html" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/signup.html" />
+        <option value="$PROJECT_DIR$/static/login.html" />
       </list>
     </option>
   </component>
@@ -202,6 +233,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coursework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coursework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -498,6 +543,14 @@
       <option name="presentableId" value="Default" />
       <updated>1484500563274</updated>
     </task>
+    <task id="LOCAL-00001" summary="Частично работают вход и регистрация">
+      <created>1484976333394</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1484976333394</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -506,22 +559,22 @@
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20497803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31407407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31407407" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,6 +585,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Частично работают вход и регистрация" />
+    <option name="LAST_COMMIT_MESSAGE" value="Частично работают вход и регистрация" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -546,14 +603,14 @@
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
-            <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-            <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-            <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-            <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+            <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+            <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+            <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+            <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -585,14 +642,14 @@
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
-            <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-            <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-            <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-            <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+            <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+            <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+            <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+            <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -624,14 +681,14 @@
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
-            <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-            <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-            <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-            <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+            <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+            <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+            <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+            <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -663,14 +720,14 @@
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
             <element signature="e#0#91#0" expanded="true" />
-            <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-            <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-            <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-            <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+            <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+            <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+            <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+            <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -814,6 +871,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
           <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -828,28 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="59" lean-forward="false" selection-start-line="0" selection-start-column="40" selection-end-line="0" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="35" lean-forward="false" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/signup.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="19" lean-forward="false" selection-start-line="3" selection-start-column="19" selection-end-line="3" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -869,10 +905,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="30" column="26" lean-forward="false" selection-start-line="30" selection-start-column="26" selection-end-line="30" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#91#0" expanded="true" />
+            <marker date="1484976439781" expanded="true" signature="410:456" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="410:459" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:844" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="798:847" ph="SELECT user_... users" />
+            <marker date="1484976439781" expanded="true" signature="1069:1156" ph="INSERT INTO users... " />
+            <marker date="1484976439781" expanded="true" signature="1494:1635" ph="SELECT usern... messages" />
+            <marker date="1484976439781" expanded="true" signature="1963:2071" ph="INSERT INTO anime_list... " />
+            <marker date="1484976439781" expanded="true" signature="2418:2453" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="56" column="44" lean-forward="false" selection-start-line="56" selection-start-column="44" selection-end-line="56" selection-end-column="44" />
+        <state relative-caret-position="54">
+          <caret line="58" column="10" lean-forward="false" selection-start-line="58" selection-start-column="10" selection-end-line="58" selection-end-column="10" />
           <folding>
             <element signature="e#37#70#0" expanded="false" />
             <element signature="e#135#176#0" expanded="false" />
@@ -881,28 +935,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/login.html">
+    <entry file="file://$PROJECT_DIR$/static/edit.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="21" selection-end-column="63" />
+        <state relative-caret-position="215">
+          <caret line="38" column="19" lean-forward="true" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
+          <folding>
+            <element signature="n#div#1;n#div#0;n#div#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="21" column="6" lean-forward="false" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.py">
+    <entry file="file://$PROJECT_DIR$/static/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="42" column="20" lean-forward="true" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="35" lean-forward="false" selection-start-line="0" selection-start-column="35" selection-end-line="0" selection-end-column="35" />
           <folding>
-            <element signature="e#0#91#0" expanded="true" />
-            <marker date="1484975412346" expanded="true" signature="410:456" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:930" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="884:933" ph="SELECT user_... users" />
-            <marker date="1484975412346" expanded="true" signature="1155:1242" ph="INSERT INTO users... " />
-            <marker date="1484975412346" expanded="true" signature="1580:1721" ph="SELECT usern... messages" />
-            <marker date="1484975412346" expanded="true" signature="2049:2157" ph="INSERT INTO anime_list... " />
-            <marker date="1484975412346" expanded="true" signature="2504:2539" ph="DELETE FROM " />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="4" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

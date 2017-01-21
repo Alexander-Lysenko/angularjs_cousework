@@ -1,5 +1,7 @@
-<h3 class="panel-title">Для просмотра коллекции войдите или зарегистрируйтесь</h3>
-<div ng-controller="LoginController">
+
+<div class="panel-heading container" style="margin: auto" ng-controller="LoginController">
+    <h1>Моя коллекция аниме</h1>
+    <h3 class="panel-title">Для просмотра коллекции войдите или зарегистрируйтесь</h3>
     <form name="loginForm" ng-submit="login()" role="form" novalidate>
         <div class="form-group"
              ng-class="{ 'has-error': loginForm.username.$dirty && loginForm.username.$error.required }">

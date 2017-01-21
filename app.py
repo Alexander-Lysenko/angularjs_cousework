@@ -17,8 +17,6 @@ def api_login():
     username = c.execute('''SELECT user_name FROM users WHERE user_name = :us;''',
                          {'us': auth['username']}).fetchone()
     if username is not None:
-        req = make_response(redirect('/'))
-        req.set_cookie('session:', 'dsdf')
         return 'OK'
     else:
         return 'Fail'

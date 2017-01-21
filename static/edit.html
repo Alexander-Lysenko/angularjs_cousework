@@ -1,6 +1,5 @@
 <div class="text-center" ng-controller="AnimeListController">
-    <h3 ng-controller="LoginController">Здравствуйте, {{ '{{username}}' }}</h3>
-    <div class="panel panel-primary" style="float: left; margin-right: 10px;">
+    <div class="panel-primary" style="float: left; margin-right: 10px;">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить аниме в коллекцию</h3>
         </div>
@@ -32,7 +31,7 @@
             </form>
         </div>
     </div>
-    <div class="panel panel-heading" style="overflow: hidden" ng-init="requestData()">
+    <div class="panel-heading" style="overflow: hidden" ng-init="requestData()">
         <div class="panel-heading">
             <h3 class="panel-title" align="center">Мой список аниме</h3>
         </div>
@@ -48,14 +47,12 @@
             </tr>
             </thead>
             <tr ng-repeat="anime in anime_list | orderBy: 'anime[0]' ">
-                <td><p>{{ '{{anime[1]}}' }}</p></td>
-                <td><p>{{ '{{anime[2]}}' }}</p></td>
-                <td><p>{{ '{{anime[3]}}' }}</p></td>
-                <td><p>{{ '{{anime[4]}}' }}</p></td>
-                <td><p>{{ '{{anime[5]}}' }}</p></td>
-                <td><button class="btn btn-default" {{'ng-click=removeAnime({{anime[0]}})'}}>X</button></td>
-                <!--td><button class="btn btn-default" onclick="
-                location.href='/api/anime/rm/{{ ' {{anime[0]}} ' }}'">X</button></td-->
+                <td><p>{{anime[1]}}</p></td>
+                <td><p>{{anime[2]}}</p></td>
+                <td><p>{{anime[3]}}</p></td>
+                <td><p>{{anime[4]}}</p></td>
+                <td><p>{{anime[5]}}</p></td>
+                <td><button class="btn btn-default" ng-click="removeAnime({{anime[0]}}")>X</button></td>
             </tr>
             <tr ng-if="edit.title">
                 <td ng-bind="edit.title"></td>
