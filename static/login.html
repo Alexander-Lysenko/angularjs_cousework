@@ -1,7 +1,7 @@
-
-<div class="panel-heading container" style="margin: auto" ng-controller="LoginController">
+<div class="panel-heading container" style="margin: auto; max-width: 400px" ng-controller="LoginController">
     <h1>Моя коллекция аниме</h1>
     <h3 class="panel-title">Для просмотра коллекции войдите или зарегистрируйтесь</h3>
+    <div ng-show="error" class="alert alert-danger">{{error}}</div>
     <form name="loginForm" ng-submit="login()" role="form" novalidate>
         <div class="form-group"
              ng-class="{ 'has-error': loginForm.username.$dirty && loginForm.username.$error.required }">
@@ -21,4 +21,3 @@
         <a class="btn btn-default" href="/#signup" role="button">Регистрация</a>
     </form>
 </div>
-<div ng-show="error" class="alert alert-danger">{{error}}</div>

@@ -12,7 +12,7 @@ app.factory('AuthenticationService',
             $timeout(function(){
                 var response = { success: username === 'test' && password === 'test' };
                 if(!response.success) {
-                    response.message = 'Username or password is incorrect';
+                    response.message = 'Имя пользователя или пароль не подходят';
                 }
                 callback(response);
             }, 1000);

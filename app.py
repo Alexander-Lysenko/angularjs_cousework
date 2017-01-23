@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, escape, redirect, make_response
-import random, sqlite3
+import random, sqlite3, uuid, hashlib
 app = Flask(__name__)
 app.debug = True
 
@@ -9,30 +9,39 @@ def index():
     return render_template('index.html')
 
 
-@app.route("/api/login", methods=['POST'])
-def api_login():
-    auth = request.get_json()
+@app.route("/api/login/verify/<name>", methods=['POST'])
+def verify(name):
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    username = c.execute('''SELECT user_name FROM users WHERE user_name = :us;''',
-                         {'us': auth['username']}).fetchone()
+    username = c.execute('''SELECT nickname FROM users WHERE nickname = :name;''',
+                         {'name': name}).fetchone()
+    conn.close()
     if username is not None:
         return 'OK'
     else:
         return 'Fail'
 
 
+@app.route("/api/login", methods=['POST'])
+def api_login():
+    auth = request.get_json()
+    if verify(auth['username']) == 'OK':
+        c = sqlite3.connect('database.db').cursor()
+        password = c.execute('''SELECT salt, password FROM users WHERE nickname = :us;''',
+                             {'us': auth['username']}).fetchone()
+        if password[1] == auth['password']:
+            return 'OK'
+    return 'Fail'
+
+
 @app.route("/api/signup", methods=['POST'])
 def api_signup():
     userdata = request.get_json()
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    username = c.execute('''SELECT user_name FROM users WHERE user_name = :us;''',
-                         {'us': userdata['user_name']}).fetchone()
-    if username is not None:
+    if verify(userdata['nickname']) == 'OK':
         return 'Fail'
     else:
         salt = random.randrange(1, 9999)
+        conn = sqlite3.connect('database.db')
         c = conn.cursor()
         c.execute('''INSERT INTO users(user_name, nickname, email, password, salt)
     VALUES(?, ?, ?, ?, ?);''', (userdata['user_name'], userdata['nickname'], userdata['email'], userdata['password'],
@@ -55,12 +64,15 @@ def api_anime_list():
 @app.route('/api/anime/add', methods=['POST'])
 def api_anime_add():
     anime = request.get_json()
-    conn = sqlite3.connect('database.db')
-    c = conn.cursor()
-    c.execute('''INSERT INTO anime_list(title, title_original, release_date, series_count, description)
+    try:
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        c.execute('''INSERT INTO anime_list(title, title_original, release_date, series_count, description)
 VALUES(?, ?, ?, ?, ?);''', (anime['title'], anime['title_original'], anime['release_date'], anime['series_count'],
                             anime['description']))
-    conn.commit()
+        conn.commit()
+    except sqlite3.IntegrityError:
+        return 'Fail'
     return 'OK'
 
 
@@ -68,7 +80,7 @@ VALUES(?, ?, ?, ?, ?);''', (anime['title'], anime['title_original'], anime['rele
 def api_anime_rm(anime_id):
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    c.execute('''DELETE FROM anime_list WHERE id = ?;''', anime_id)
+    c.execute('''DELETE FROM anime_list WHERE id = :id;''', {'id': anime_id})
     conn.commit()
     return 'OK'
 
