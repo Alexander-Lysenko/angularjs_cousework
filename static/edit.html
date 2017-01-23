@@ -1,11 +1,11 @@
 <div class="text-center" ng-controller="AnimeListController" style="padding: 1%">
-    <div class="panel-primary" style="float: left; margin-right: 10px;">
+    <div class="panel-primary" style="float: left; height: 94vh; overflow-y: auto; margin-right: 10px;">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить аниме в коллекцию</h3>
         </div>
         <div class="panel-body">
-            <div ng-show="message" class="alert alert-success">{{message}}</div>
-            <div ng-show="error" class="alert alert-danger">{{error}}</div>
+            <div ng-show="message" style="max-width: 220px" class="alert alert-success">{{message}}</div>
+            <div ng-show="error" style="max-width: 220px" class="alert alert-danger">{{error}}</div>
             <form name="editForm" ng-submit="submitForm(edit, editForm);" novalidate>
                 <div class="form-group">
                     <label for="title">Название:</label>
@@ -17,8 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label for="series_count">Количество серий:</label>
-                    <input type="number" min="1" id="series_count" class="form-control" ng-model="edit.series_count"
-                           required>
+                    <input type="number" min="1" id="series_count" class="form-control" ng-model="edit.series_count">
                 </div>
                 <div class="form-group">
                     <label for="release_date">Дата выхода:</label>
@@ -26,107 +25,51 @@
                 </div>
                 <div class="form-group">
                     <label for="description">Описание:</label>
-                    <textarea id="description" class="form-control" ng-model="edit.description" rows="5"
-                              required></textarea>
+                    <textarea id="description" class="form-control" ng-model="edit.description" rows="5"></textarea>
                 </div>
+                <div id="reviewStars-input">
+                    <b>Ваша оценка:</b><br />
+                    <input id="star-4" type="radio" name="rating" value="5" ng-model="edit.rating"/>
+                    <label title="gorgeous" for="star-4"></label>
+
+                    <input id="star-3" type="radio" name="rating" value="4" ng-model="edit.rating"/>
+                    <label title="good" for="star-3"></label>
+
+                    <input id="star-2" type="radio" name="rating" value="3" ng-model="edit.rating"/>
+                    <label title="regular" for="star-2"></label>
+
+                    <input id="star-1" type="radio" name="rating" value="2" ng-model="edit.rating"/>
+                    <label title="poor" for="star-1"></label>
+
+                    <input id="star-0" type="radio" name="rating" value="1" ng-model="edit.rating"/>
+                    <label title="bad" for="star-0"></label>
+                </div><br />
                 <button type="submit" class="btn btn-primary">Добавить аниме</button>
             </form>
         </div>
     </div>
-    <div class="panel-primary" style="height: 100%; overflow-y: auto" ng-init="requestData()">
-        <div class="panel-heading">
-            <h3 class="panel-title" align="center">Мой список аниме</h3>
-        </div>
-        <table class="table table-responsive table-bordered">
-            <thead class="text-center">
-            <tr>
-                <th style="width: 15%"><label>Название</label></th>
-                <th><label>Оригинальное название</label></th>
-                <th><label>Количество серий</label></th>
-                <th><label>Дата выхода</label></th>
-                <th style="width: 30%"><label>Описание</label></th>
-                <th></th>
-            </tr>
-            </thead>
-            <tr ng-repeat="anime in anime_list | orderBy: 'anime[0]'">
-                <td><p>{{anime[1]}}</p></td>
-                <td><p>{{anime[2]}}</p></td>
-                <td><p>{{anime[3]}}</p></td>
-                <td><p>{{anime[4]}}</p></td>
-                <td><p>{{anime[5]}}</p></td>
-                <td>
-                    <button id="element{{anime[0]}}" class="btn bg-primary" ng-click="removeAnime(anime[0])">X</button>
-                </td>
-            </tr>
-            <tr ng-if="edit.title">
-                <td ng-bind="edit.title"></td>
-                <td ng-bind="edit.title_original"></td>
-                <td ng-bind="edit.series_count"></td>
-                <td ng-bind="edit.release_date.toDateString('dd.MM.yyyy')"></td>
-                <td ng-bind="edit.description"></td>
-                <td></td>
-            </tr>
-        </table>
-
-        <div class="panel-primary text-left" style="margin-bottom: 25px">
+    <div class="panel-primary" style="height: 94vh; overflow-y: auto" ng-init="requestData()">
+            <h3 align="center" style="margin: 0 0 10px 0;">Мой список аниме</h3>
+        <div ng-if="edit.title" class="panel-info text-left" style="margin-bottom: 25px">
             <div class="panel-heading">
-            <button class="btn btn-xs btn-danger" style="float: right">Удалить</button>
-            <h4 style="margin: 0">Тетрадь смерти</h4></div>
-            <dd><b>Оригинальное название: </b>Death Note</dd>
-            <dd><b>Количество серий: </b>34</dd>
-            <dd><b>Дата выхода: </b>3 октября 2006</dd>
+            <h4 style="margin: 0" ng-bind="edit.title"></h4></div>
+            <dd><b>Оригинальное название: </b><span ng-bind="edit.title_original"></span></dd>
+            <dd><b>Количество серий: </b><span ng-bind="edit.series_count"></span></dd>
+            <dd><b>Дата выхода: </b><span ng-bind="edit.release_date.toLocaleDateString()"></span></dd>
             <dt>Описание:</dt>
-            <dd>В основу сюжета фэнтезийного аниме сериала «Тетрадь смерти» легли культовые
-                японские комиксы, так называемая манга, написанная известным японским писателем Цугуми Оба.
-                Мультсериал повествует историю о некой странной тетради, обладающей магическими свойствами,
-                и являющейся таким себе идеальным оружием. Согласно легенде, если написать на ней
-                имя человека и указать его приметы, то в скором времени его непременно настигнет смерть.
-                Однажды эта ужасная тетрадь оказывается в руках самого обычного школьника Лайта Ягами. Отец мальчишки большую часть
-                своей жизни посвятил работе в полиции, пытаясь очистить общество от преступности.
-                Но как бы он не старался это сделать, мир вокруг становился только хуже.
-                Заветная мечта Лайта пойти по стопам своего отца.
-                И вот когда в его руках оказывается такое мощное оружие как тетрадь смерти, он начинает вершить
-                свое собственное правосудие, даже не думая к каким серьезным последствиям это может привести…</dd>
+            <dd ng-bind="edit.description"></dd>
         </div>
-        <div class="panel-primary text-left" style="margin-bottom: 25px">
+        <div ng-repeat="anime in anime_list | orderBy: 'anime[0]'" class="panel-primary text-left" style="margin-bottom: 25px">
             <div class="panel-heading">
-            <button class="btn btn-xs btn-danger" style="float: right">Удалить</button>
-            <h4 style="margin: 0">Тетрадь смерти</h4></div>
-            <dd><b>Оригинальное название: </b>Death Note</dd>
-            <dd><b>Количество серий: </b>34</dd>
-            <dd><b>Дата выхода: </b>3 октября 2006</dd>
+            <button class="btn btn-xs btn-danger" style="float: right" id="element{{anime[0]}}"
+                    ng-click="removeAnime(anime[0])">Удалить</button>
+            <h4 style="margin: 0">{{anime[1]}}</h4></div>
+            <dd><b>Оригинальное название: </b>{{anime[2]}}</dd>
+            <dd style="float: right; margin-right: 10px;"><b>Оценка: </b>{{anime[6]}}</dd>
+            <dd><b>Количество серий: </b>{{anime[3]}}</dd>
+            <dd><b>Дата выхода: </b>{{anime[4]}}</dd>
             <dt>Описание:</dt>
-            <dd>В основу сюжета фэнтезийного аниме сериала «Тетрадь смерти» легли культовые
-                японские комиксы, так называемая манга, написанная известным японским писателем Цугуми Оба.
-                Мультсериал повествует историю о некой странной тетради, обладающей магическими свойствами,
-                и являющейся таким себе идеальным оружием. Согласно легенде, если написать на ней
-                имя человека и указать его приметы, то в скором времени его непременно настигнет смерть.
-                Однажды эта ужасная тетрадь оказывается в руках самого обычного школьника Лайта Ягами. Отец мальчишки большую часть
-                своей жизни посвятил работе в полиции, пытаясь очистить общество от преступности.
-                Но как бы он не старался это сделать, мир вокруг становился только хуже.
-                Заветная мечта Лайта пойти по стопам своего отца.
-                И вот когда в его руках оказывается такое мощное оружие как тетрадь смерти, он начинает вершить
-                свое собственное правосудие, даже не думая к каким серьезным последствиям это может привести…</dd>
-        </div>
-        <div class="panel-primary text-left" style="margin-bottom: 25px">
-            <div class="panel-heading">
-            <button class="btn btn-xs btn-danger" style="float: right">Удалить</button>
-            <h4 style="margin: 0">Тетрадь смерти</h4></div>
-            <dd><b>Оригинальное название: </b>Death Note</dd>
-            <dd><b>Количество серий: </b>34</dd>
-            <dd><b>Дата выхода: </b>3 октября 2006</dd>
-            <dt>Описание:</dt>
-            <dd>В основу сюжета фэнтезийного аниме сериала «Тетрадь смерти» легли культовые
-                японские комиксы, так называемая манга, написанная известным японским писателем Цугуми Оба.
-                Мультсериал повествует историю о некой странной тетради, обладающей магическими свойствами,
-                и являющейся таким себе идеальным оружием. Согласно легенде, если написать на ней
-                имя человека и указать его приметы, то в скором времени его непременно настигнет смерть.
-                Однажды эта ужасная тетрадь оказывается в руках самого обычного школьника Лайта Ягами. Отец мальчишки большую часть
-                своей жизни посвятил работе в полиции, пытаясь очистить общество от преступности.
-                Но как бы он не старался это сделать, мир вокруг становился только хуже.
-                Заветная мечта Лайта пойти по стопам своего отца.
-                И вот когда в его руках оказывается такое мощное оружие как тетрадь смерти, он начинает вершить
-                свое собственное правосудие, даже не думая к каким серьезным последствиям это может привести…</dd>
+            <dd>{{anime[5]}}</dd>
         </div>
     </div>
 </div>

@@ -37,7 +37,7 @@ app.controller('SignupController', function ($scope, $http) {
                     $scope.error = null;
                 }
                 else {
-                    $scope.error = 'Ошибка';
+                    $scope.error = 'Ошибка. Этот никнейм уже занят';
                     $scope.message = null;
                     console.log(response);
                 }
@@ -91,7 +91,7 @@ app.controller('AnimeListController', function ($scope, $http) {
                     $scope.edit = null;
                 }
                 else {
-                    $scope.error = 'Ошибка: Аниме уже есть в коллекции';
+                    $scope.error = 'Ошибка: Аниме c таким именем уже есть в коллекции';
                     $scope.message = null;
                     console.log('Ошибка');
                 }
@@ -100,9 +100,9 @@ app.controller('AnimeListController', function ($scope, $http) {
     };
 
     $scope.removeAnime = function (number) {
-        if (confirm('Вы действительно желаете удалить это аниме из коллекции')) {
+        if (confirm('Вы действительно желаете удалить это аниме из коллекции?')) {
             $http.post('/api/anime/rm/' + number).then(this.requestData());
-            console.log(' Deletion successful');
+            console.log(' Deletion successful. id = '+number);
         }
         else {
             console.log('Deletion cancelled');

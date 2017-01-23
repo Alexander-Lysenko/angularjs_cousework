@@ -1,8 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42c94399-e144-4179-abbe-125904c02b78" name="Default" comment="">
+    <list default="true" id="42c94399-e144-4179-abbe-125904c02b78" name="Default" comment="Исправлены вход, регистрация, добавление и удаление контента">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/star.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/css/review-stars.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database.db" afterPath="$PROJECT_DIR$/database.db" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.py" afterPath="$PROJECT_DIR$/app.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/app.js" afterPath="$PROJECT_DIR$/static/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/cover.css" afterPath="$PROJECT_DIR$/static/css/cover.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/sticky-footer.css" afterPath="$PROJECT_DIR$/static/css/sticky-footer.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/edit.html" afterPath="$PROJECT_DIR$/static/edit.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/index.html" afterPath="$PROJECT_DIR$/templates/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,10 +22,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/coursework$app.coverage" NAME="app Coverage Results" MODIFIED="1485120783500" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/coursework$app.coverage" NAME="app Coverage Results" MODIFIED="1485158729114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
-    <option name="PATCH_PATH" value="" />
+    <option name="PATCH_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="GROUP_SCHEMA" value="true" />
@@ -28,20 +38,22 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1206">
-              <caret line="67" column="45" lean-forward="true" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+            <state relative-caret-position="18">
+              <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding>
-                <element signature="e#0#91#0" expanded="true" />
-                <marker date="1485126440644" expanded="true" signature="410:459" ph="SELECT user_... users" />
-                <marker date="1485126440644" expanded="true" signature="832:885" ph="SELECT salt,... users" />
-                <marker date="1485126440644" expanded="true" signature="1352:1439" ph="INSERT INTO users... " />
-                <marker date="1485126440644" expanded="true" signature="1777:1918" ph="SELECT usern... messages" />
-                <marker date="1485126440644" expanded="true" signature="2267:2375" ph="INSERT INTO anime_list... " />
-                <marker date="1485126440644" expanded="true" signature="2783:2818" ph="DELETE FROM " />
-                <marker date="1485126440644" expanded="true" signature="2783:2820" ph="DELETE FROM " />
+                <element signature="e#0#66#0" expanded="true" />
+                <marker date="1485164599578" expanded="true" signature="377:426" ph="SELECT user_... users" />
+                <marker date="1485164599578" expanded="true" signature="813:866" ph="SELECT salt,... users" />
+                <marker date="1485164599578" expanded="true" signature="1467:1550" ph="INSERT INTO users... " />
+                <marker date="1485164599578" expanded="true" signature="1679:1720" ph="SELECT id FR... users" />
+                <marker date="1485164599578" expanded="true" signature="1788:2042" ph="CREATE TABLE... anime_list" />
+                <marker date="1485164599578" expanded="true" signature="1788:2043" ph="CREATE TABLE... anime_list:uid" />
+                <marker date="1485164599578" expanded="true" signature="2268:2413" ph="SELECT id, t... anime_list" />
+                <marker date="1485164599578" expanded="true" signature="2768:2876" ph="INSERT INTO anime_list... " />
+                <marker date="1485164599578" expanded="true" signature="3284:3321" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
@@ -50,88 +62,25 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="239">
-              <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
+            <state relative-caret-position="252">
+              <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
               <folding>
                 <element signature="e#37#70#0" expanded="false" />
                 <element signature="e#135#176#0" expanded="false" />
                 <element signature="e#217#794#0" expanded="false" />
                 <element signature="e#864#905#0" expanded="false" />
-                <element signature="e#1932#2673#0" expanded="false" />
-                <element signature="e#2970#3607#0" expanded="false" />
-                <element signature="e#4020#4061#0" expanded="false" />
-                <element signature="e#4074#5093#0" expanded="false" />
+                <element signature="e#4074#4115#0" expanded="false" />
+                <element signature="e#4128#5147#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/services/services.js">
+      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="14" column="79" lean-forward="false" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
-              <folding>
-                <element signature="e#1166#1593#0" expanded="false" />
-                <element signature="e#1272#1415#0" expanded="false" />
-                <element signature="e#1644#1804#0" expanded="false" />
-                <element signature="e#1876#4627#0" expanded="false" />
-                <element signature="e#2044#3058#0" expanded="false" />
-                <element signature="e#3095#4588#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="sticky-footer.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/sticky-footer.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-81">
-              <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="18">
-              <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="edit.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/edit.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="45" column="50" lean-forward="false" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#div#3;n#div#1;n#div#0;n#!!top" expanded="false" />
-                <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#h4#0;n#div#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="2" column="86" lean-forward="false" selection-start-line="2" selection-start-column="86" selection-end-line="3" selection-end-column="67" />
+            <state relative-caret-position="378">
+              <caret line="21" column="92" lean-forward="false" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="92" />
               <folding />
             </state>
           </provider>
@@ -145,6 +94,7 @@
         <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -178,14 +128,15 @@
         <option value="$PROJECT_DIR$/templates/layout.html" />
         <option value="$PROJECT_DIR$/static/home.html" />
         <option value="$PROJECT_DIR$/static/login.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/static/css/cover.css" />
         <option value="$PROJECT_DIR$/static/services/services.js" />
+        <option value="$PROJECT_DIR$/static/css/cover.css" />
+        <option value="$PROJECT_DIR$/static/css/sticky-footer.css" />
+        <option value="$PROJECT_DIR$/static/css/review-stars.css" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/static/edit.html" />
+        <option value="$PROJECT_DIR$/static/app.js" />
         <option value="$PROJECT_DIR$/static/signup.html" />
         <option value="$PROJECT_DIR$/app.py" />
-        <option value="$PROJECT_DIR$/static/app.js" />
-        <option value="$PROJECT_DIR$/static/css/sticky-footer.css" />
-        <option value="$PROJECT_DIR$/static/edit.html" />
       </list>
     </option>
   </component>
@@ -215,21 +166,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="coursework">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -302,8 +238,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="img" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coursework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="coursework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="coursework">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -316,17 +285,19 @@
     <property name="js.eslint.eslintPackage" value="" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="Sqlite (Xerial)" />
+    <property name="ChangesBrowser.SHOW_FLATTEN" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/static/services" />
-      <recent name="$PROJECT_DIR$/static" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/templates" />
       <recent name="$PROJECT_DIR$/static/html" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/services" />
+      <recent name="$PROJECT_DIR$/static" />
     </key>
   </component>
   <component name="RunManager" selected="Python.app">
@@ -606,31 +577,38 @@
       <option name="project" value="LOCAL" />
       <updated>1485131040906</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Исправлены вход, регистрация, добавление и удаление контента">
+      <created>1485131091395</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1485131091395</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="21" width="1366" height="747" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20497803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20497803" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31407407" sideWeight="0.50292826" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31407407" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29185185" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -654,23 +632,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#37#70#0" expanded="false" />
-            <element signature="e#135#176#0" expanded="false" />
-            <element signature="e#217#794#0" expanded="false" />
-            <element signature="e#864#905#0" expanded="false" />
-            <element signature="e#1932#2673#0" expanded="false" />
-            <element signature="e#2970#3607#0" expanded="false" />
-            <element signature="e#4020#4061#0" expanded="false" />
-            <element signature="e#4074#5093#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/task.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -685,14 +646,16 @@
         <state relative-caret-position="126">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <element signature="e#0#91#0" expanded="true" />
-            <marker date="1485126440644" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1485126440644" expanded="true" signature="832:885" ph="SELECT salt,... users" />
-            <marker date="1485126440644" expanded="true" signature="1352:1439" ph="INSERT INTO users... " />
-            <marker date="1485126440644" expanded="true" signature="1777:1918" ph="SELECT usern... messages" />
-            <marker date="1485126440644" expanded="true" signature="2267:2375" ph="INSERT INTO anime_list... " />
-            <marker date="1485126440644" expanded="true" signature="2783:2818" ph="DELETE FROM " />
-            <marker date="1485126440644" expanded="true" signature="2783:2820" ph="DELETE FROM " />
+            <element signature="e#0#66#0" expanded="true" />
+            <marker date="1485164599578" expanded="true" signature="377:426" ph="SELECT user_... users" />
+            <marker date="1485164599578" expanded="true" signature="813:866" ph="SELECT salt,... users" />
+            <marker date="1485164599578" expanded="true" signature="1467:1550" ph="INSERT INTO users... " />
+            <marker date="1485164599578" expanded="true" signature="1679:1720" ph="SELECT id FR... users" />
+            <marker date="1485164599578" expanded="true" signature="1788:2042" ph="CREATE TABLE... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="1788:2043" ph="CREATE TABLE... anime_list:uid" />
+            <marker date="1485164599578" expanded="true" signature="2268:2413" ph="SELECT id, t... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="2768:2876" ph="INSERT INTO anime_list... " />
+            <marker date="1485164599578" expanded="true" signature="3284:3321" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -706,10 +669,8 @@
             <element signature="e#135#176#0" expanded="false" />
             <element signature="e#217#794#0" expanded="false" />
             <element signature="e#864#905#0" expanded="false" />
-            <element signature="e#1932#2673#0" expanded="false" />
-            <element signature="e#2970#3607#0" expanded="false" />
-            <element signature="e#4020#4061#0" expanded="false" />
-            <element signature="e#4074#5093#0" expanded="false" />
+            <element signature="e#4074#4115#0" expanded="false" />
+            <element signature="e#4128#5147#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -728,14 +689,16 @@
         <state relative-caret-position="126">
           <caret line="7" column="22" lean-forward="false" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
           <folding>
-            <element signature="e#0#91#0" expanded="true" />
-            <marker date="1485126440644" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1485126440644" expanded="true" signature="832:885" ph="SELECT salt,... users" />
-            <marker date="1485126440644" expanded="true" signature="1352:1439" ph="INSERT INTO users... " />
-            <marker date="1485126440644" expanded="true" signature="1777:1918" ph="SELECT usern... messages" />
-            <marker date="1485126440644" expanded="true" signature="2267:2375" ph="INSERT INTO anime_list... " />
-            <marker date="1485126440644" expanded="true" signature="2783:2818" ph="DELETE FROM " />
-            <marker date="1485126440644" expanded="true" signature="2783:2820" ph="DELETE FROM " />
+            <element signature="e#0#66#0" expanded="true" />
+            <marker date="1485164599578" expanded="true" signature="377:426" ph="SELECT user_... users" />
+            <marker date="1485164599578" expanded="true" signature="813:866" ph="SELECT salt,... users" />
+            <marker date="1485164599578" expanded="true" signature="1467:1550" ph="INSERT INTO users... " />
+            <marker date="1485164599578" expanded="true" signature="1679:1720" ph="SELECT id FR... users" />
+            <marker date="1485164599578" expanded="true" signature="1788:2042" ph="CREATE TABLE... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="1788:2043" ph="CREATE TABLE... anime_list:uid" />
+            <marker date="1485164599578" expanded="true" signature="2268:2413" ph="SELECT id, t... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="2768:2876" ph="INSERT INTO anime_list... " />
+            <marker date="1485164599578" expanded="true" signature="3284:3321" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -749,10 +712,8 @@
             <element signature="e#135#176#0" expanded="false" />
             <element signature="e#217#794#0" expanded="false" />
             <element signature="e#864#905#0" expanded="false" />
-            <element signature="e#1932#2673#0" expanded="false" />
-            <element signature="e#2970#3607#0" expanded="false" />
-            <element signature="e#4020#4061#0" expanded="false" />
-            <element signature="e#4074#5093#0" expanded="false" />
+            <element signature="e#4074#4115#0" expanded="false" />
+            <element signature="e#4128#5147#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -771,14 +732,16 @@
         <state relative-caret-position="342">
           <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
           <folding>
-            <element signature="e#0#91#0" expanded="true" />
-            <marker date="1485126440644" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1485126440644" expanded="true" signature="832:885" ph="SELECT salt,... users" />
-            <marker date="1485126440644" expanded="true" signature="1352:1439" ph="INSERT INTO users... " />
-            <marker date="1485126440644" expanded="true" signature="1777:1918" ph="SELECT usern... messages" />
-            <marker date="1485126440644" expanded="true" signature="2267:2375" ph="INSERT INTO anime_list... " />
-            <marker date="1485126440644" expanded="true" signature="2783:2818" ph="DELETE FROM " />
-            <marker date="1485126440644" expanded="true" signature="2783:2820" ph="DELETE FROM " />
+            <element signature="e#0#66#0" expanded="true" />
+            <marker date="1485164599578" expanded="true" signature="377:426" ph="SELECT user_... users" />
+            <marker date="1485164599578" expanded="true" signature="813:866" ph="SELECT salt,... users" />
+            <marker date="1485164599578" expanded="true" signature="1467:1550" ph="INSERT INTO users... " />
+            <marker date="1485164599578" expanded="true" signature="1679:1720" ph="SELECT id FR... users" />
+            <marker date="1485164599578" expanded="true" signature="1788:2042" ph="CREATE TABLE... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="1788:2043" ph="CREATE TABLE... anime_list:uid" />
+            <marker date="1485164599578" expanded="true" signature="2268:2413" ph="SELECT id, t... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="2768:2876" ph="INSERT INTO anime_list... " />
+            <marker date="1485164599578" expanded="true" signature="3284:3321" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -814,10 +777,8 @@
             <element signature="e#135#176#0" expanded="false" />
             <element signature="e#217#794#0" expanded="false" />
             <element signature="e#864#905#0" expanded="false" />
-            <element signature="e#1932#2673#0" expanded="false" />
-            <element signature="e#2970#3607#0" expanded="false" />
-            <element signature="e#4020#4061#0" expanded="false" />
-            <element signature="e#4074#5093#0" expanded="false" />
+            <element signature="e#4074#4115#0" expanded="false" />
+            <element signature="e#4128#5147#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -845,13 +806,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/angular.min.js.map">
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-53481">
           <caret line="4" column="80479" lean-forward="false" selection-start-line="4" selection-start-column="80479" selection-end-line="4" selection-end-column="80479" />
         </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/profile.html" />
@@ -924,21 +885,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
+    <entry file="file://$PROJECT_DIR$/static/css/sticky-footer.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="26" column="6" lean-forward="false" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="281">
+          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/css/cover.css">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="29" column="52" lean-forward="false" selection-start-line="29" selection-start-column="52" selection-end-line="29" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/review-stars.css">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-          <folding />
+          <caret line="11" column="34" lean-forward="false" selection-start-line="11" selection-start-column="34" selection-end-line="11" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="70" lean-forward="true" selection-start-line="4" selection-start-column="70" selection-end-line="4" selection-end-column="70" />
         </state>
       </provider>
     </entry>
@@ -946,101 +924,61 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="14" column="79" lean-forward="false" selection-start-line="14" selection-start-column="79" selection-end-line="14" selection-end-column="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="22" column="40" lean-forward="false" selection-start-line="22" selection-start-column="40" selection-end-line="22" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/edit.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="51" column="57" lean-forward="false" selection-start-line="51" selection-start-column="57" selection-end-line="51" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
           <folding>
-            <element signature="e#1166#1593#0" expanded="false" />
-            <element signature="e#1272#1415#0" expanded="false" />
-            <element signature="e#1644#1804#0" expanded="false" />
-            <element signature="e#1876#4627#0" expanded="false" />
-            <element signature="e#2044#3058#0" expanded="false" />
-            <element signature="e#3095#4588#0" expanded="false" />
+            <element signature="e#37#70#0" expanded="false" />
+            <element signature="e#135#176#0" expanded="false" />
+            <element signature="e#217#794#0" expanded="false" />
+            <element signature="e#864#905#0" expanded="false" />
+            <element signature="e#4074#4115#0" expanded="false" />
+            <element signature="e#4128#5147#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/signup.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="107" lean-forward="false" selection-start-line="23" selection-start-column="107" selection-end-line="23" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="23" column="69" lean-forward="false" selection-start-line="23" selection-start-column="69" selection-end-line="23" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="2" column="86" lean-forward="false" selection-start-line="2" selection-start-column="86" selection-end-line="3" selection-end-column="67" />
+        <state relative-caret-position="378">
+          <caret line="21" column="92" lean-forward="false" selection-start-line="21" selection-start-column="92" selection-end-line="21" selection-end-column="92" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1206">
-          <caret line="67" column="45" lean-forward="true" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        <state relative-caret-position="18">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding>
-            <element signature="e#0#91#0" expanded="true" />
-            <marker date="1485126440644" expanded="true" signature="410:459" ph="SELECT user_... users" />
-            <marker date="1485126440644" expanded="true" signature="832:885" ph="SELECT salt,... users" />
-            <marker date="1485126440644" expanded="true" signature="1352:1439" ph="INSERT INTO users... " />
-            <marker date="1485126440644" expanded="true" signature="1777:1918" ph="SELECT usern... messages" />
-            <marker date="1485126440644" expanded="true" signature="2267:2375" ph="INSERT INTO anime_list... " />
-            <marker date="1485126440644" expanded="true" signature="2783:2818" ph="DELETE FROM " />
-            <marker date="1485126440644" expanded="true" signature="2783:2820" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="103" column="12" lean-forward="false" selection-start-line="103" selection-start-column="12" selection-end-line="103" selection-end-column="12" />
-          <folding>
-            <element signature="e#37#70#0" expanded="false" />
-            <element signature="e#135#176#0" expanded="false" />
-            <element signature="e#217#794#0" expanded="false" />
-            <element signature="e#864#905#0" expanded="false" />
-            <element signature="e#1932#2673#0" expanded="false" />
-            <element signature="e#2970#3607#0" expanded="false" />
-            <element signature="e#4020#4061#0" expanded="false" />
-            <element signature="e#4074#5093#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/sticky-footer.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-81">
-          <caret line="11" column="18" lean-forward="false" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/edit.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="45" column="50" lean-forward="false" selection-start-line="45" selection-start-column="50" selection-end-line="45" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#2;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#2;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#div#1;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#3;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="e#0#66#0" expanded="true" />
+            <marker date="1485164599578" expanded="true" signature="377:426" ph="SELECT user_... users" />
+            <marker date="1485164599578" expanded="true" signature="813:866" ph="SELECT salt,... users" />
+            <marker date="1485164599578" expanded="true" signature="1467:1550" ph="INSERT INTO users... " />
+            <marker date="1485164599578" expanded="true" signature="1679:1720" ph="SELECT id FR... users" />
+            <marker date="1485164599578" expanded="true" signature="1788:2042" ph="CREATE TABLE... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="1788:2043" ph="CREATE TABLE... anime_list:uid" />
+            <marker date="1485164599578" expanded="true" signature="2268:2413" ph="SELECT id, t... anime_list" />
+            <marker date="1485164599578" expanded="true" signature="2768:2876" ph="INSERT INTO anime_list... " />
+            <marker date="1485164599578" expanded="true" signature="3284:3321" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>

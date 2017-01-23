@@ -3,26 +3,24 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    {% if title %}
-    <title>{{title}} - My Anime List</title>
-    {% else %}
     <title>My Anime List</title>
-    {% endif %}
     <link rel="stylesheet" href="../static/css/bootstrap.css">
     <link rel="stylesheet" href="../static/css/cover.css">
     <link rel="stylesheet" href="../static/css/sticky-footer.css">
+    <link rel="stylesheet" href="../static/css/review-stars.css">
     <script src="../static/js/angular.min.js"></script>
     <script src="../static/js/angular-route.js"></script>
     <script src="../static/js/angular-cookies.js"></script>
     <script src="../static/app.js"></script>
     <script src="../static/services/services.js"></script>
 </head>
-<body ng-app="AnimeApp" style="background: url('http://www.pictureshack.ru/images/60846_1276073636_1920x1080_9-96.jpg')">
+<body ng-app="AnimeApp">
 <!-- основной контент -->
 <div ng-view=""></div>
+<!-- прекрасный футер -->
 <div id="footer">
     <div class="container">
-        <p class="text-muted">Place sticky footer content here.</p>
+        <p class="text-muted">My Anime List (c) 2017</p>
     </div>
 </div>
 
