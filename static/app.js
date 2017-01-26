@@ -22,6 +22,10 @@ app.config(function ($routeProvider) {
             templateUrl: "/static/profile.html",
             controller: "ProfileController"
         })
+        .when("/logout", {
+            templateUrl: "/static/login.html",
+            controller: "LoginController"
+        })
         .otherwise({redirectTo: '/login'});
 });
 
@@ -64,7 +68,7 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'Authent
         $scope.login = function () {
             $scope.dataLoading = true;
             AuthenticationService.Login($scope.username, $scope.password, function (response) {
-                if (response.data == 'OK') {
+                if (response.data != 'Fail') {
                     AuthenticationService.SetCredentials($scope.username, $scope.password);
                     $location.path('/');
                 } else {
@@ -74,10 +78,12 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'Authent
             });
         };
     }]);
+
 app.controller('AnimeListController', function ($scope, $http) {
     $scope.requestData = function () {
         $http.get('/api/anime/list').then(function (request) {
             $scope.anime_list = request.data.anime_list;
+            $scope.username = request.data.user_name;
         });
     };
 

@@ -1,5 +1,5 @@
 <div class="text-center" ng-controller="AnimeListController" style="padding: 1%">
-    <div class="panel-primary" style="float: left; height: 94vh; overflow-y: auto; margin-right: 10px;">
+    <div class="panel-primary" style="float: left; height: 94vh; overflow-y: auto; margin-right: 10px; padding-right: 10px">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить аниме в коллекцию</h3>
         </div>
@@ -48,8 +48,22 @@
             </form>
         </div>
     </div>
-    <div class="panel-primary" style="height: 94vh; overflow-y: auto" ng-init="requestData()">
-            <h3 align="center" style="margin: 0 0 10px 0;">Мой список аниме</h3>
+    <div class="panel-primary" style="height: 94vh; overflow-y: auto; padding-right: 10px" ng-init="requestData()">
+        <table class="table navbar"  style="margin-bottom: 0">
+            <tr>
+                <td style=" border: none">
+                    <h3 align="center" style="margin: 0 0 10px 0;">Моя коллекция аниме</h3>
+                </td>
+                <td style="float:right; border: none">
+                    <span class="h5" style="padding-right: 25px">Здравствуйте, {{username}}!</span>
+                    <a class="btn btn-xs btn-info" href="/#profile">Профиль</a>
+                    <a class="btn btn-xs btn-success" href="/#logout">Выход</a>
+                </td>
+            </tr>
+        </table>
+        <div class="panel-info" style="float: right; clear:both">
+
+        </div>
         <div ng-if="edit.title" class="panel-info text-left" style="margin-bottom: 25px">
             <div class="panel-heading">
             <h4 style="margin: 0" ng-bind="edit.title"></h4></div>

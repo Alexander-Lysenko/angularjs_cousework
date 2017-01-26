@@ -9,13 +9,13 @@ app.factory('AuthenticationService',
 
             /* Dummy authentication for testing, uses $timeout to simulate api call
              ----------------------------------------------*/
-            $timeout(function(){
+            /*$timeout(function(){
                 var response = { success: username === 'test' && password === 'test' };
                 if(!response.success) {
                     response.message = 'Имя пользователя или пароль не подходят';
                 }
                 callback(response);
-            }, 1000);
+            }, 1000);*/
 
 
             /* Use this for real authentication
