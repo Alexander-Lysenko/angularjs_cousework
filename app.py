@@ -5,6 +5,7 @@ app = Flask(__name__)
 app.debug = True
 
 
+# ==================== AUTHENTICATION ============================
 def check_auth(username, password):
     """This function is called to check if a username /
     password combination is valid.
@@ -17,12 +18,12 @@ def check_auth(username, password):
     if passdata[1] == hashlib.sha512((passdata[0] + str(password)).encode('utf-8')).hexdigest():
         return username and password
 
+
 def authenticate():
     """Sends a 401 response that enables basic auth"""
-    return Response(
-    'Could not verify your access level for that URL.\n'
-    'You have to login with proper credentials', 401,
-    {'WWW-Authenticate': 'Basic realm="Login Required"'})
+    return Response('Could not verify your access level for that URL.\nYou have to login with proper credentials',
+                    401, {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
 
 def requires_auth(f):
     @wraps(f)
@@ -33,18 +34,18 @@ def requires_auth(f):
         return f(*args, **kwargs)
     return decorated
 
-@app.route('/secret-page')
-@requires_auth
-def secret_page():
-    return render_template('index.html')
+
+# ==================== AUTHENTICATION API ============================
+@app.route('/api/login', methods=['POST'])
+def api_login():
+    auth = request.get_json()
+    if verify(auth['username']) == 'OK':
+        if check_auth(auth['username'], auth['password']):
+            return 'OK'
+    return 'Fail'
 
 
-@app.route("/")
-def index():
-    return render_template('index.html')
-
-
-@app.route("/api/login/verify/<name>", methods=['POST'])
+@app.route('/api/login/verify/<name>', methods=['POST'])
 def verify(name):
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
@@ -58,15 +59,7 @@ def verify(name):
         return 'Fail'
 
 
-@app.route("/api/login", methods=['POST'])
-def api_login():
-    auth = request.get_json()
-    if verify(auth['username']) == 'OK':
-        if check_auth(auth['username'], auth['password']):
-            return 'OK'
-    return 'Fail'
-
-@app.route("/api/logout", methods=['GET'])
+@app.route('/api/logout', methods=['GET'])
 @requires_auth
 def api_logout():
     return Response(
@@ -74,7 +67,7 @@ def api_logout():
     'You have to login with proper credentials', 401)
 
 
-@app.route("/api/signup", methods=['POST'])
+@app.route('/api/signup', methods=['POST'])
 def api_signup():
     userdata = request.get_json()
     if verify(userdata['nickname']) == 'OK':
@@ -100,7 +93,19 @@ VALUES(?, ?, ?, ?, ?);''', (userdata['user_name'], userdata['nickname'], userdat
         return 'OK'
 
 
-@app.route("/api/anime/list")
+@app.route('/secret-page')
+@requires_auth
+def secret_page():
+    return render_template('index.html')
+
+
+# ==================== MAIN ============================
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+
+@app.route('/api/anime/list')
 @requires_auth
 def api_anime_list():
     authdata = request.authorization
@@ -131,7 +136,7 @@ VALUES(?, ?, ?, ?, ?);''', (anime['title'], anime['title_original'], anime['rele
     return 'OK'
 
 
-@app.route("/api/anime/rm/<anime_id>", methods=['POST'])
+@app.route('/api/anime/rm/<int:anime_id>', methods=['POST'])
 @requires_auth
 def api_anime_rm(anime_id):
     conn = sqlite3.connect('database.db')
@@ -141,5 +146,28 @@ def api_anime_rm(anime_id):
     return 'OK'
 
 
+# ==================== CHANGE USER DATA ============================
+@app.route('/api/change/user_data/<name>', methods=['POST'])
+@requires_auth
+def api_change_user_data(name):
+    user_data = request.get_json()
+    try:
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        c.execute('''UPDATE users SET user_name = ?, email = ? where nickname = '''+str(name),
+                  user_data['user_name'], user_data['email'])
+        conn.commit()
+    except sqlite3.IntegrityError:
+        return 'Fail'
+    return 'OK'
+
+
+@app.route('/api/change/password/<name>', methods=['POST'])
+@requires_auth
+def api_change_password(name):
+    return 'OK'
+
+
+# ==================== START THIS APP ============================
 if __name__ == "__main__":
     app.run()

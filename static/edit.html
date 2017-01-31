@@ -1,5 +1,8 @@
 <div class="text-center" ng-controller="AnimeListController" style="padding: 1%">
-    <div class="panel-primary" style="float: left; height: 94vh; overflow-y: auto; margin-right: 10px; padding-right: 10px">
+    <div class="panel-primary" style="
+    float: left;
+    height: 94vh;
+    overflow-y: auto;">
         <div class="panel-heading">
             <h3 class="panel-title">Добавить аниме в коллекцию</h3>
         </div>
@@ -28,7 +31,7 @@
                     <textarea id="description" class="form-control" ng-model="edit.description" rows="5"></textarea>
                 </div>
                 <div id="reviewStars-input">
-                    <b>Ваша оценка:</b><br />
+                    <b>Ваша оценка:</b><br/>
                     <input id="star-4" type="radio" name="rating" value="5" ng-model="edit.rating"/>
                     <label title="gorgeous" for="star-4"></label>
 
@@ -43,47 +46,53 @@
 
                     <input id="star-0" type="radio" name="rating" value="1" ng-model="edit.rating"/>
                     <label title="bad" for="star-0"></label>
-                </div><br />
+                </div>
+                <br/>
                 <button type="submit" class="btn btn-primary">Добавить аниме</button>
             </form>
         </div>
     </div>
-    <div class="panel-primary" style="height: 94vh; overflow-y: auto; padding-right: 10px" ng-init="requestData()">
-        <table class="table navbar"  style="margin-bottom: 0">
+
+    <div class="panel-primary" style="overflow: hidden" ng-init="requestData()">
+        <table class="table table-responsive" style="margin: -5px 0 -5px 0;">
             <tr>
                 <td style=" border: none">
-                    <h3 align="center" style="margin: 0 0 10px 0;">Моя коллекция аниме</h3>
+                    <h3 align="center" style="margin: -5px 0 10px 0;">Моя коллекция аниме</h3>
                 </td>
-                <td style="float:right; border: none">
+                <td style="float:right; border: none;">
                     <span class="h5" style="padding-right: 25px">Здравствуйте, {{username}}!</span>
                     <a class="btn btn-xs btn-info" href="/#profile">Профиль</a>
-                    <a class="btn btn-xs btn-success" href="/#logout">Выход</a>
+                    <a class="btn btn-xs btn-success" ng-controller="LoginController" ng-click="logout()">Выход</a>
                 </td>
             </tr>
         </table>
-        <div class="panel-info" style="float: right; clear:both">
-
-        </div>
-        <div ng-if="edit.title" class="panel-info text-left" style="margin-bottom: 25px">
-            <div class="panel-heading">
-            <h4 style="margin: 0" ng-bind="edit.title"></h4></div>
-            <dd><b>Оригинальное название: </b><span ng-bind="edit.title_original"></span></dd>
-            <dd><b>Количество серий: </b><span ng-bind="edit.series_count"></span></dd>
-            <dd><b>Дата выхода: </b><span ng-bind="edit.release_date.toLocaleDateString()"></span></dd>
-            <dt>Описание:</dt>
-            <dd ng-bind="edit.description"></dd>
-        </div>
-        <div ng-repeat="anime in anime_list | orderBy: 'anime[0]'" class="panel-primary text-left" style="margin-bottom: 25px">
-            <div class="panel-heading">
-            <button class="btn btn-xs btn-danger" style="float: right" id="element{{anime[0]}}"
-                    ng-click="removeAnime(anime[0])">Удалить</button>
-            <h4 style="margin: 0">{{anime[1]}}</h4></div>
-            <dd><b>Оригинальное название: </b>{{anime[2]}}</dd>
-            <dd style="float: right; margin-right: 10px;"><b>Оценка: </b>{{anime[6]}}</dd>
-            <dd><b>Количество серий: </b>{{anime[3]}}</dd>
-            <dd><b>Дата выхода: </b>{{anime[4]}}</dd>
-            <dt>Описание:</dt>
-            <dd>{{anime[5]}}</dd>
+        <div class="panel-body" style="height: 88vh; overflow-y: auto; padding-top: 0">
+            <div class="panel-info" style="">
+            </div>
+            <div ng-if="edit.title" class="panel-info text-left" style="margin-bottom: 25px">
+                <div class="panel-heading">
+                    <h4 style="margin: 0" ng-bind="edit.title"></h4>
+                </div>
+                <dd><b>Оригинальное название: </b><span ng-bind="edit.title_original"></span></dd>
+                <dd><b>Количество серий: </b><span ng-bind="edit.series_count"></span></dd>
+                <dd><b>Дата выхода: </b><span ng-bind="edit.release_date.toLocaleDateString()"></span></dd>
+                <dt>Описание:</dt>
+                <dd ng-bind="edit.description"></dd>
+            </div>
+            <div ng-repeat="anime in anime_list | orderBy: 'anime[0]'" class="panel-primary text-left"
+                 style="margin-bottom: 25px">
+                <div class="panel-heading">
+                    <button class="btn btn-xs btn-danger" style="float: right" id="element{{anime[0]}}"
+                            ng-click="removeAnime(anime[0])">Удалить
+                    </button>
+                    <h4 style="margin: 0">{{anime[1]}}</h4></div>
+                <dd><b>Оригинальное название: </b>{{anime[2]}}</dd>
+                <dd style="float: right; margin-right: 10px;"><b>Оценка: </b>{{anime[6]}}</dd>
+                <dd><b>Количество серий: </b>{{anime[3]}}</dd>
+                <dd><b>Дата выхода: </b>{{anime[4]}}</dd>
+                <dt>Описание:</dt>
+                <dd>{{anime[5]}}</dd>
+            </div>
         </div>
     </div>
 </div>

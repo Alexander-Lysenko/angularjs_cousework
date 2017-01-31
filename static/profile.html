@@ -1,5 +1,89 @@
-Эта страница показывает вложенные виды.
-
-Main
-
-login signup profile
+<div class="panel-heading container" style="margin: auto" ng-controller="ProfileController" ng-init="pushData()">
+    <h1>Профиль</h1>
+    <h3 class="panel-title">Пользователь: {{user_name}} ({{nickname}})</h3>
+    <div ng-show="message" class="alert alert-success">{{message}}</div>
+    <div ng-show="error" class="alert alert-danger">{{error}}</div>
+    <!-- USER_FORM ============ -->
+    <div class="panel-primary panel-bordered" style="float: left; width: 300px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Изменить личные данные</h3>
+        </div>
+        <div class="panel-body">
+            <form name="userForm" ng-submit="changeInfoForm(user, userForm)" novalidate>
+                <!-- NICK_NAME -->
+                <div class="form-group">
+                    <label>Никнейм (неизменяем):</label>
+                    <input type="text" name="user_name" class="form-control" placeholder="Никнейм"
+                           value="{{nickname}}" disabled>
+                </div>
+                <!-- USER_NAME -->
+                <div class="form-group"
+                     ng-class="{ 'has-error' : userForm.user_name.$invalid && !userForm.user_name.$pristine }">
+                    <label>Изменить имя:</label>
+                    <input type="text" name="user_name" value="{{user_name}}"
+                           class="form-control"
+                           ng-model="user.user_name"
+                           ng-minlength="3" required placeholder="Введите Ваше имя">
+                    <p ng-show="userForm.user_name.$invalid && !userForm.user_name.$pristine" class="help-block">
+                        Необходимо ввести свое имя</p>
+                </div>
+                <!-- EMAIL -->
+                <div class="form-group"
+                     ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                    <label>Изменить адрес почты:</label>
+                    <input type="email" name="email" class="form-control" ng-model="user.email" required
+                           placeholder="Введите адрес почты">
+                    <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">
+                        Некорректный адрес почты</p>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Изменить личные данные
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- PASSWORD_FORM ============ -->
+    <div class="panel-primary panel-bordered" style="float: right; width: 300px">
+        <div class="panel-heading">
+            <h3 class="panel-title">Изменить пароль</h3>
+        </div>
+        <div class="panel-body">
+            <form name="passwordForm" ng-submit="changePassForm(password, passwordForm)" novalidate>
+                <!-- OLD PASSWORD -->
+                <div class="form-group"
+                     ng-class="{ 'has-error' : passwordForm.old_password.$invalid && !passwordForm.old_password.$pristine }">
+                    <label>Старый пароль:</label>
+                    <input type="password" name="old_password" class="form-control" ng-model="password.old_password"
+                           ng-minlength="8" ng-maxlength="32" required>
+                    <p ng-show="passwordForm.old_password.$error.minlength || passwordForm.old_password.$error.maxlength"
+                       class="help-block">Длина пароля должна быть 8-32 символа</p>
+                </div>
+                <!-- NEW PASSWORD -->
+                <div class="form-group"
+                     ng-class="{ 'has-error' : passwordForm.new_password.$invalid && !passwordForm.new_password.$pristine }">
+                    <label>Новый пароль:</label>
+                    <input type="password" name="new_password" class="form-control" ng-model="password.new_password"
+                           ng-minlength="8" ng-maxlength="32" required>
+                    <p ng-show="passwordForm.new_password.$error.minlength || passwordForm.new_password.$error.maxlength"
+                       class="help-block">Длина пароля должна быть 8-32 символа</p>
+                </div>
+                <!-- CONFIRM_PASSWORD -->
+                <div class="form-group"
+                     ng-class="{ 'has-error' :
+                     passwordForm.confirm_password.$invalid &&
+                     !passwordForm.confirm_password.$pristine &&
+                     password.new_password != password.confirm_password }">
+                    <label>Повторите новый пароль:</label>
+                    <input type="password" name="confirm_password" class="form-control"
+                           ng-model="password.confirm_password" required ng-pattern="password.password">
+                    <p ng-show="!passwordForm.confirm_password.$pristine &&
+                        password.new_password != password.confirm_password" class="help-block">
+                        Пароли не совпадают
+                    </p>
+                </div>
+                <button type="submit" class="btn btn-primary" ng-disabled="passwordForm.$invalid">Изменить пароль
+                </button>
+            </form>
+        </div>
+    </div>
+    <a class="btn btn-default" style=" clear: both; margin-top: 10px" href="/" role="button">Вернуться</a>
+</div>

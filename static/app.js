@@ -22,16 +22,9 @@ app.config(function ($routeProvider) {
             templateUrl: "/static/profile.html",
             controller: "ProfileController"
         })
-        .when("/logout", {
-            templateUrl: "/static/login.html",
-            controller: "LoginController"
-        })
         .otherwise({redirectTo: '/login'});
 });
 
-app.controller('HomepageController', ['$scope', function ($scope) {
-    $scope.message = "Hello, World!";
-}]);
 app.controller('SignupController', function ($scope, $http) {
     $scope.submitForm = function (user, userForm) {
         if (userForm.$valid) {
@@ -62,8 +55,6 @@ app.controller('SignupController', function ($scope, $http) {
 });
 app.controller('LoginController', ['$scope', '$rootScope', '$location', 'AuthenticationService',
     function ($scope, $rootScope, $location, AuthenticationService) {
-        // reset login status
-        AuthenticationService.ClearCredentials();
 
         $scope.login = function () {
             $scope.dataLoading = true;
@@ -77,8 +68,15 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'Authent
                 }
             });
         };
+        $scope.logout = function () {
+            // reset login status
+            if (confirm('Вы действительно желаете выйти из своего аккаунта?')) {
+                AuthenticationService.ClearCredentials();
+                $location.path('/login');
+                console.log('Successful logout');
+            }
+        }
     }]);
-
 app.controller('AnimeListController', function ($scope, $http) {
     $scope.requestData = function () {
         $http.get('/api/anime/list').then(function (request) {
@@ -108,7 +106,7 @@ app.controller('AnimeListController', function ($scope, $http) {
     $scope.removeAnime = function (number) {
         if (confirm('Вы действительно желаете удалить это аниме из коллекции?')) {
             $http.post('/api/anime/rm/' + number).then(this.requestData());
-            console.log(' Deletion successful. id = '+number);
+            console.log(' Deletion successful. id = ' + number);
         }
         else {
             console.log('Deletion cancelled');
@@ -116,7 +114,9 @@ app.controller('AnimeListController', function ($scope, $http) {
     };
 });
 app.controller('ProfileController', ['$scope', function ($scope) {
-    $scope.message = "Hello, World!";
+    $scope.pushData = function () {
+
+    }
 }]);
 
 app.run(['$rootScope', '$location', '$cookieStore', '$http',
@@ -130,7 +130,7 @@ app.run(['$rootScope', '$location', '$cookieStore', '$http',
 
         $rootScope.$on('$locationChangeStart', function (event, next, current) {
             // redirect to login page if not logged in
-            /*var restrictedPage = $.inArray($location.path(), ['/login', '/signup']) === -1;
+            /*var restrictedPage = $.inArray($location.path(), ['/', '/profile']) === -1;
              var loggedIn = $rootScope.globals.currentUser;
              if (restrictedPage && !loggedIn) {
              $location.path('/login');
