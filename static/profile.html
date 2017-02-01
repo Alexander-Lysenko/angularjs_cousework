@@ -9,7 +9,7 @@
             <h3 class="panel-title">Изменить личные данные</h3>
         </div>
         <div class="panel-body">
-            <form name="userForm" ng-submit="changeInfoForm(user, userForm)" novalidate>
+            <form name="userForm" ng-submit="changeInfo(user, userForm)" novalidate>
                 <!-- NICK_NAME -->
                 <div class="form-group">
                     <label>Никнейм (неизменяем):</label>
@@ -47,7 +47,7 @@
             <h3 class="panel-title">Изменить пароль</h3>
         </div>
         <div class="panel-body">
-            <form name="passwordForm" ng-submit="changePassForm(password, passwordForm)" novalidate>
+            <form name="passwordForm" ng-submit="changePassword(password, passwordForm)" novalidate>
                 <!-- OLD PASSWORD -->
                 <div class="form-group"
                      ng-class="{ 'has-error' : passwordForm.old_password.$invalid && !passwordForm.old_password.$pristine }">

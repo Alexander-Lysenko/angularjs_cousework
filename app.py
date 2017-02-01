@@ -78,16 +78,17 @@ def api_signup():
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
         c.execute('''INSERT INTO users(user_name, nickname, email, password, salt)
-VALUES(?, ?, ?, ?, ?);''', (userdata['user_name'], userdata['nickname'], userdata['email'], pass_hash.hexdigest(), salt))
+VALUES(?, ?, ?, ?, ?);''', (userdata['user_name'], userdata['nickname'], userdata['email'],
+                            pass_hash.hexdigest(), salt))
         uid = c.execute('''SELECT id FROM users WHERE nickname = :nn''', {'nn': userdata['nickname']}).fetchone()
         c.execute('''CREATE TABLE "anime_list_'''+str(uid[0])+'''" (
- `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
- `title`	VARCHAR NOT NULL UNIQUE,
- `title_original`	VARCHAR NOT NULL UNIQUE,
- `release_date`	VARCHAR,
- `series_count`	INTEGER,
- `description`	TEXT,
- `rating`	INTEGER);''')
+        `id`	INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        `title`	VARCHAR NOT NULL UNIQUE,
+        `title_original`	VARCHAR NOT NULL UNIQUE,
+        `release_date`	VARCHAR,
+        `series_count`	INTEGER,
+        `description`	TEXT,
+        `rating`	INTEGER);''')
         conn.commit()
         conn.close()
         return 'OK'
@@ -147,14 +148,31 @@ def api_anime_rm(anime_id):
 
 
 # ==================== CHANGE USER DATA ============================
-@app.route('/api/change/user_data/<name>', methods=['POST'])
+@app.route('/api/user/get_data')
 @requires_auth
-def api_change_user_data(name):
+def api_user_get_data():
+    authdata = request.authorization
+    try:
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        usid = c.execute('''SELECT id, user_name, email, nickname, password, salt FROM users
+WHERE nickname = :uu;''', {'uu': authdata['username']}).fetchone()
+        conn.commit()
+    except sqlite3.IntegrityError:
+        return 'Fail'
+    usid = [[escape(a), escape(b), escape(c), d, e, f] for a, b, c, d, e, f in usid]
+    return jsonify({'user_data': usid})
+
+
+@app.route('/api/user/change_info', methods=['POST'])
+@requires_auth
+def api_user_change_info():
+    authdata = request.authorization
     user_data = request.get_json()
     try:
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        c.execute('''UPDATE users SET user_name = ?, email = ? where nickname = '''+str(name),
+        c.execute('''UPDATE users SET user_name = ?, email = ? where nickname = '''+str(authdata['username']),
                   user_data['user_name'], user_data['email'])
         conn.commit()
     except sqlite3.IntegrityError:
@@ -162,9 +180,19 @@ def api_change_user_data(name):
     return 'OK'
 
 
-@app.route('/api/change/password/<name>', methods=['POST'])
+@app.route('/api/user/change_password', methods=['POST'])
 @requires_auth
-def api_change_password(name):
+def api_user_change_password():
+    authdata = request.authorization
+    user_data = request.get_json()
+    try:
+        conn = sqlite3.connect('database.db')
+        c = conn.cursor()
+        c.execute('''UPDATE users SET password = ? where nickname = '''+str(authdata['username']),
+                  hashlib.sha512((user_data['salt'] + user_data['password']).encode('utf-8')))
+        conn.commit()
+    except sqlite3.IntegrityError:
+        return 'Fail'
     return 'OK'
 
 

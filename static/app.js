@@ -116,7 +116,15 @@ app.controller('AnimeListController', function ($scope, $http) {
 app.controller('ProfileController', ['$scope', function ($scope) {
     $scope.pushData = function () {
 
-    }
+    };
+
+    $scope.changeInfoForm = function () {
+
+    };
+
+    $scope.changePassword = function () {
+
+    };
 }]);
 
 app.run(['$rootScope', '$location', '$cookieStore', '$http',
