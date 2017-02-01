@@ -1,6 +1,6 @@
 <div class="panel-heading container" style="margin: auto" ng-controller="ProfileController" ng-init="pushData()">
     <h1>Профиль</h1>
-    <h3 class="panel-title">Пользователь: {{user_name}} ({{nickname}})</h3>
+    <h3 class="panel-title">Пользователь: {{user_data[0]}} ({{user_data[2]}})</h3>
     <div ng-show="message" class="alert alert-success">{{message}}</div>
     <div ng-show="error" class="alert alert-danger">{{error}}</div>
     <!-- USER_FORM ============ -->
@@ -13,14 +13,14 @@
                 <!-- NICK_NAME -->
                 <div class="form-group">
                     <label>Никнейм (неизменяем):</label>
-                    <input type="text" name="user_name" class="form-control" placeholder="Никнейм"
-                           value="{{nickname}}" disabled>
+                    <input type="text" name="nick_name" class="form-control" placeholder="Никнейм"
+                           value="{{user_data[2]}}" disabled>
                 </div>
                 <!-- USER_NAME -->
                 <div class="form-group"
                      ng-class="{ 'has-error' : userForm.user_name.$invalid && !userForm.user_name.$pristine }">
                     <label>Изменить имя:</label>
-                    <input type="text" name="user_name" value="{{user_name}}"
+                    <input type="text" name="user_name" value="{{user_data[0]}}"
                            class="form-control"
                            ng-model="user.user_name"
                            ng-minlength="3" required placeholder="Введите Ваше имя">
@@ -31,7 +31,8 @@
                 <div class="form-group"
                      ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
                     <label>Изменить адрес почты:</label>
-                    <input type="email" name="email" class="form-control" ng-model="user.email" required
+                    <input type="email" name="email" value="{{user_data[1]}}"
+                           class="form-control" ng-model="user.email" required
                            placeholder="Введите адрес почты">
                     <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">
                         Некорректный адрес почты</p>
@@ -80,6 +81,7 @@
                         Пароли не совпадают
                     </p>
                 </div>
+                <input type="hidden" name="salt" value="{{user_data[4]}}">
                 <button type="submit" class="btn btn-primary" ng-disabled="passwordForm.$invalid">Изменить пароль
                 </button>
             </form>

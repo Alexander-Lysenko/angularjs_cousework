@@ -113,19 +113,51 @@ app.controller('AnimeListController', function ($scope, $http) {
         }
     };
 });
-app.controller('ProfileController', ['$scope', function ($scope) {
+app.controller('ProfileController', function ($scope, $http) {
     $scope.pushData = function () {
-
+        $http.get('/api/user/get_data').then(function (request) {
+            $scope.user_data = request.data.user_data;
+            console.log('fetched info about user');
+        });
     };
 
-    $scope.changeInfoForm = function () {
-
+    $scope.changeInfoForm = function (user, userForm) {
+        if (userForm.$valid) {
+            $http.post("/api/user/change_info", user).then(function (request) {
+                if (request.data == 'OK') {
+                    $scope.message = 'Ваши личные данные изменены';
+                    $scope.error = null;
+                    console.log('User' + user.nick_name + 'changed his info');
+                    $scope.user = null;
+                }
+                else {
+                    $scope.error = 'Ошибка: Проверьте правильность вводимых данных!';
+                    $scope.message = null;
+                    console.log('Error changing info');
+                }
+            }).then(this.pushData())
+        }
     };
 
-    $scope.changePassword = function () {
-
+    $scope.changePassword = function (password, passwordForm) {
+        if (passwordForm.$valid) {
+            $http.post("/api/user/change_password", password).then(function (request) {
+                if (request.data == 'OK') {
+                    $scope.message = 'Ваш пароль изменен';
+                    $scope.error = null;
+                    console.log('User' + user.nick_name + 'changed his password');
+                    //AuthenticationService.SetCredentials($scope.password, $scope.password);
+                    $scope.password = null;
+                }
+                else {
+                    $scope.error = 'Ошибка: Неправильный пароль';
+                    $scope.message = null;
+                    console.log('Error changing password');
+                }
+            }).then(this.pushData())
+        }
     };
-}]);
+});
 
 app.run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {

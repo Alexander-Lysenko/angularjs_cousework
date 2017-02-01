@@ -155,12 +155,11 @@ def api_user_get_data():
     try:
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        usid = c.execute('''SELECT id, user_name, email, nickname, password, salt FROM users
+        usid = c.execute('''SELECT user_name, email, nickname, password, salt FROM users
 WHERE nickname = :uu;''', {'uu': authdata['username']}).fetchone()
         conn.commit()
     except sqlite3.IntegrityError:
         return 'Fail'
-    usid = [[escape(a), escape(b), escape(c), d, e, f] for a, b, c, d, e, f in usid]
     return jsonify({'user_data': usid})
 
 
