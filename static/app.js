@@ -43,8 +43,8 @@ app.controller('SignupController', function ($scope, $http) {
     };
 
     $scope.verifyName = function (username) {
-        $http.post("/api/login/verify/" + username).then(function (request) {
-            if (request.data == 'OK') {
+        $http.post("/api/login/verify/" + username).then(function (response) {
+            if (response.data == 'OK') {
                 $scope.status = 'Этот никнейм уже занят';
             }
             else {
@@ -55,7 +55,6 @@ app.controller('SignupController', function ($scope, $http) {
 });
 app.controller('LoginController', ['$scope', '$rootScope', '$location', 'AuthenticationService',
     function ($scope, $rootScope, $location, AuthenticationService) {
-
         $scope.login = function () {
             $scope.dataLoading = true;
             AuthenticationService.Login($scope.username, $scope.password, function (response) {
@@ -68,6 +67,7 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'Authent
                 }
             });
         };
+
         $scope.logout = function () {
             // reset login status
             if (confirm('Вы действительно желаете выйти из своего аккаунта?')) {
@@ -77,18 +77,19 @@ app.controller('LoginController', ['$scope', '$rootScope', '$location', 'Authent
             }
         }
     }]);
+
 app.controller('AnimeListController', function ($scope, $http) {
     $scope.requestData = function () {
-        $http.get('/api/anime/list').then(function (request) {
-            $scope.anime_list = request.data.anime_list;
-            $scope.username = request.data.user_name;
+        $http.get('/api/anime/list').then(function (response) {
+            $scope.anime_list = response.data.anime_list;
+            $scope.username = response.data.user_name;
         });
     };
 
     $scope.submitForm = function (edit, editForm) {
         if (editForm.$valid) {
-            $http.post("/api/anime/add", edit).then(function (request) {
-                if (request.data == 'OK') {
+            $http.post("/api/anime/add", edit).then(function (response) {
+                if (response.data == 'OK') {
                     $scope.message = 'Запись успешно добавлена';
                     $scope.error = null;
                     console.log('Добавлена запись: ' + edit.title);
@@ -113,51 +114,65 @@ app.controller('AnimeListController', function ($scope, $http) {
         }
     };
 });
-app.controller('ProfileController', function ($scope, $http) {
-    $scope.pushData = function () {
-        $http.get('/api/user/get_data').then(function (request) {
-            $scope.user_data = request.data.user_data;
-            console.log('fetched info about user');
-        });
-    };
 
-    $scope.changeInfoForm = function (user, userForm) {
-        if (userForm.$valid) {
-            $http.post("/api/user/change_info", user).then(function (request) {
-                if (request.data == 'OK') {
-                    $scope.message = 'Ваши личные данные изменены';
-                    $scope.error = null;
-                    console.log('User' + user.nick_name + 'changed his info');
-                    $scope.user = null;
-                }
-                else {
-                    $scope.error = 'Ошибка: Проверьте правильность вводимых данных!';
-                    $scope.message = null;
-                    console.log('Error changing info');
-                }
-            }).then(this.pushData())
-        }
-    };
+app.controller('ProfileController', ['$scope', '$rootScope', '$cookieStore', '$http', 'AuthenticationService',
+    function ($scope, $rootScope, $cookieStore, $http, AuthenticationService) {
 
-    $scope.changePassword = function (password, passwordForm) {
-        if (passwordForm.$valid) {
-            $http.post("/api/user/change_password", password).then(function (request) {
-                if (request.data == 'OK') {
-                    $scope.message = 'Ваш пароль изменен';
-                    $scope.error = null;
-                    console.log('User' + user.nick_name + 'changed his password');
-                    //AuthenticationService.SetCredentials($scope.password, $scope.password);
-                    $scope.password = null;
-                }
-                else {
-                    $scope.error = 'Ошибка: Неправильный пароль';
-                    $scope.message = null;
-                    console.log('Error changing password');
-                }
-            }).then(this.pushData())
-        }
-    };
-});
+        $rootScope.globals = $cookieStore.get('globals') || {};
+
+        $scope.pushData = function () {
+            $http.get('/api/user/get_data').then(function (response) {
+                $scope.user_data = response.data.user_data;
+                console.log('fetched info about user: ' + JSON.stringify(response.data));
+            });
+        };
+
+        $scope.changeInfo = function (user, userForm) {
+            if (userForm.$valid) {
+                $http.post("/api/user/change_info", user).then(function (response) {
+                    if (response.data == 'OK') {
+                        console.log('User ' + user.nick_name + ' changed his info');
+                        $scope.message = 'Ваши личные данные изменены';
+                        $scope.error = null;
+                    }
+                    else {
+                        $scope.error = 'Ошибка: Проверьте правильность вводимых данных!';
+                        $scope.message = null;
+                        console.log('Error changing info');
+                    }
+                }).then(this.pushData())
+            }
+        };
+
+        $scope.changePassword = function (password, passwordForm) {
+            if (passwordForm.$valid) {
+                $http.post("/api/user/change_password", password).then(function (response) {
+                    if (response.data == 'OK') {
+                        var username = $rootScope.globals.currentUser.username.toString();
+                        AuthenticationService.Login(username, password.new_password, function () {
+                            AuthenticationService.SetCredentials(username, password.new_password);
+                            $scope.message = 'Ваш пароль изменен';
+                            $scope.error = null;
+                            console.log('User changed his password');
+                            $scope.password = null;
+                        })
+                    }
+                    else {
+                        if (response.data == 'Wrong password') {
+                            $scope.error = 'Ошибка: Неправильный пароль';
+                            $scope.message = null;
+                            console.log('Wrong password');
+                        }
+                        else {
+                            $scope.error = 'Ошибка: Данные не корректны';
+                            $scope.message = null;
+                            console.log('Error changing password');
+                        }
+                    }
+                })
+            }
+        };
+    }]);
 
 app.run(['$rootScope', '$location', '$cookieStore', '$http',
     function ($rootScope, $location, $cookieStore, $http) {

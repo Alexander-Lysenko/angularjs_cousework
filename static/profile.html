@@ -20,7 +20,7 @@
                 <div class="form-group"
                      ng-class="{ 'has-error' : userForm.user_name.$invalid && !userForm.user_name.$pristine }">
                     <label>Изменить имя:</label>
-                    <input type="text" name="user_name" value="{{user_data[0]}}"
+                    <input type="text" name="user_name" ng-bind="user_name"
                            class="form-control"
                            ng-model="user.user_name"
                            ng-minlength="3" required placeholder="Введите Ваше имя">
@@ -71,8 +71,7 @@
                 <div class="form-group"
                      ng-class="{ 'has-error' :
                      passwordForm.confirm_password.$invalid &&
-                     !passwordForm.confirm_password.$pristine &&
-                     password.new_password != password.confirm_password }">
+                     !passwordForm.confirm_password.$pristine}">
                     <label>Повторите новый пароль:</label>
                     <input type="password" name="confirm_password" class="form-control"
                            ng-model="password.confirm_password" required ng-pattern="password.password">
@@ -81,7 +80,6 @@
                         Пароли не совпадают
                     </p>
                 </div>
-                <input type="hidden" name="salt" value="{{user_data[4]}}">
                 <button type="submit" class="btn btn-primary" ng-disabled="passwordForm.$invalid">Изменить пароль
                 </button>
             </form>
