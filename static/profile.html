@@ -1,6 +1,6 @@
 <div class="panel-heading container" style="margin: auto" ng-controller="ProfileController" ng-init="pushData()">
     <h1>Профиль</h1>
-    <h3 class="panel-title">Пользователь: {{user_data[0]}} ({{user_data[2]}})</h3>
+    <h3 class="panel-title" style="margin-bottom: 10px">Пользователь: {{user_data[0]}} ({{user_data[2]}})</h3>
     <div ng-show="message" class="alert alert-success">{{message}}</div>
     <div ng-show="error" class="alert alert-danger">{{error}}</div>
     <!-- USER_FORM ============ -->
@@ -85,5 +85,7 @@
             </form>
         </div>
     </div>
-    <a class="btn btn-default" style=" clear: both; margin-top: 10px" href="/" role="button">Вернуться</a>
+</div>
+<div class="panel-heading container" style="margin: auto; padding-top: 10px">
+    <a class="btn btn-default" style="clear: both; margin: auto;" href="/" role="button">Вернуться</a>
 </div>
