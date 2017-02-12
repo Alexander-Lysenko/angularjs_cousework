@@ -111,7 +111,7 @@ def api_anime_list():
     user_data = c.execute('''SELECT id, user_name FROM users WHERE nickname = :uu;''',
                           {'uu': auth_data['username']}).fetchone()
     anime = c.execute('''SELECT id, title, title_original, series_count, strftime('%d.%m.%Y', release_date),
-description, rating FROM anime_list_''' + str(user_data[0]) + ''' ORDER BY id ASC LIMIT 50;''').fetchall()
+description, rating FROM anime_list_''' + str(user_data[0]) + ''' ORDER BY id DESC LIMIT 50;''').fetchall()
     anime = [[a, escape(b), escape(c), d, e, escape(f), g] for a, b, c, d, e, f, g in anime]
     return jsonify({'anime_list': anime, 'user_name': user_data[1]})
 
@@ -142,9 +142,12 @@ def api_anime_add():
 @app.route('/api/anime/rm/<int:anime_id>', methods=['POST'])
 @requires_auth
 def api_anime_rm(anime_id):
+    auth_data = request.authorization
     conn = sqlite3.connect('database.db')
     c = conn.cursor()
-    c.execute('''DELETE FROM anime_list WHERE id = :id;''', {'id': anime_id})
+    user_data = c.execute('''SELECT id FROM users WHERE nickname = :uu;''',
+                          {'uu': auth_data['username']}).fetchone()
+    c.execute('''DELETE FROM anime_list_''' + str(user_data[0]) + ''' WHERE id = :id;''', {'id': anime_id})
     conn.commit()
     return 'OK'
 
@@ -157,7 +160,7 @@ def api_user_get_data():
     try:
         conn = sqlite3.connect('database.db')
         c = conn.cursor()
-        user_data = c.execute('''SELECT user_name, email, nickname, password, salt FROM users
+        user_data = c.execute('''SELECT user_name, email, nickname, password FROM users
 WHERE nickname = :uu;''', {'uu': auth_data['username']}).fetchone()
         conn.commit()
     except sqlite3.IntegrityError:

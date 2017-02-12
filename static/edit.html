@@ -10,45 +10,57 @@
             <div ng-show="message" style="max-width: 220px" class="alert alert-success">{{message}}</div>
             <div ng-show="error" style="max-width: 220px" class="alert alert-danger">{{error}}</div>
             <form name="editForm" ng-submit="submitForm(edit, editForm);" novalidate>
-                <div class="form-group">
-                    <label for="title">Название:</label>
-                    <input type="text" id="title" class="form-control" ng-model="edit.title" required>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : editForm.title.$invalid && !editForm.title.$pristine }">
+                    <label>Название:</label>
+                    <input type="text" name="title" class="form-control" ng-model="edit.title" required
+                    placeholder="На русском языке" ng-minlength="2">
+                    <p ng-show="editForm.title.$invalid && !editForm.title.$pristine" class="help-block">
+                Это поле обязательно</p>
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error' : editForm.title_original.$invalid &&
+                     !editForm.title_original.$pristine }">
+                    <label>Оригинальное название:</label>
+                    <input type="text" name="title_original" class="form-control" ng-model="edit.title_original"
+                           required placeholder="На английском, японском, и т.д." ng-minlength="2">
+                    <p ng-show="editForm.title_original.$invalid && !editForm.title_original.$pristine"
+                       class="help-block">И все поля ниже обязательны</p>
                 </div>
                 <div class="form-group">
-                    <label for="title_original">Оригинальное название:</label>
-                    <input type="text" id="title_original" class="form-control" ng-model="edit.title_original" required>
-                </div>
-                <div class="form-group">
-                    <label for="series_count">Количество серий:</label>
-                    <input type="number" min="1" id="series_count" class="form-control" ng-model="edit.series_count">
+                    <label>Количество серий:</label>
+                    <input type="number" min="1" name="series_count"ng-model="edit.series_count"
+                           class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="release_date">Дата выхода:</label>
                     <input type="date" id="release_date" class="form-control" ng-model="edit.release_date" required>
                 </div>
                 <div class="form-group">
-                    <label for="description">Описание:</label>
-                    <textarea id="description" class="form-control" ng-model="edit.description" rows="5"></textarea>
+                    <label>Описание:</label>
+                    <textarea name="description" class="form-control" ng-model="edit.description" rows="5" required
+                    placeholder="Вставьте сюда краткое описание"></textarea>
                 </div>
                 <div id="reviewStars-input">
                     <b>Ваша оценка:</b><br/>
                     <input id="star-4" type="radio" name="rating" value="5" ng-model="edit.rating"/>
-                    <label title="gorgeous" for="star-4"></label>
+                    <label title="Отлично" for="star-4"></label>
 
                     <input id="star-3" type="radio" name="rating" value="4" ng-model="edit.rating"/>
-                    <label title="good" for="star-3"></label>
+                    <label title="Хорошо" for="star-3"></label>
 
                     <input id="star-2" type="radio" name="rating" value="3" ng-model="edit.rating"/>
-                    <label title="regular" for="star-2"></label>
+                    <label title="Так себе" for="star-2"></label>
 
                     <input id="star-1" type="radio" name="rating" value="2" ng-model="edit.rating"/>
-                    <label title="poor" for="star-1"></label>
+                    <label title="Плохо" for="star-1"></label>
 
                     <input id="star-0" type="radio" name="rating" value="1" ng-model="edit.rating"/>
-                    <label title="bad" for="star-0"></label>
+                    <label title="Ужасно" for="star-0"></label>
                 </div>
                 <br/>
-                <button type="submit" class="btn btn-primary">Добавить аниме</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="editForm.$invalid">
+                    Добавить аниме</button>
             </form>
         </div>
     </div>
